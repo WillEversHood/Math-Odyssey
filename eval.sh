@@ -1,11 +1,13 @@
 #!/bin/bash
-cd ~/Documents/GitHub/Math-Odyssey
+cd ~/Documents/Math-Odyssey
 if [ "$1" = "light" ]; then
     dir="-light"
 elif [ "$1" = "vlight" ]; then
     dir="-vlight"
-elif [ "$1" = "ulight" ];then
+elif [ "$1" = "ulight" ]; then
     dir="-ulight"
+elif [ "$1" = "mlight" ]; then
+    dir="-mlight"
 else
     dir=""
 fi
@@ -16,7 +18,7 @@ lines=$(wc -l < $file)
 echo "number of problems $lines"
 for i in $(seq 1 $lines); do
     #echo "Line number: $i"
-    cd ~/Documents/GitHub/Math-Odyssey
+    cd ~/Documents/Math-Odyssey
     chmod +x generate_question.py
     chmod +x generate_answer.py
     question=$(python3 generate_question.py $i)
@@ -25,7 +27,7 @@ for i in $(seq 1 $lines); do
     #echo "answer: $answer"
     #echo "question: $question"
     
-    cd ~/Documents/GitHub/Math-Odyssey/gen_formalizer
+    cd ~/Documents/Math-Odyssey/gen_formalizer
     chmod +x generate_score.py
     crewai install
     #myarray=($question $answer)
