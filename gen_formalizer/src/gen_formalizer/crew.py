@@ -19,18 +19,40 @@ class GenFormalizer():
     
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
+
+    '''
+    Additional Attributes of the Agent Class:
+    agent_executor: An instance of the CrewAgentExecutor class.
+    role: The role of the agent.
+    goal: The objective of the agent.
+    backstory: The backstory of the agent.
+    knowledge: The knowledge base of the agent.
+    config: Dict representation of agent configuration.
+    llm: The language model that will run the agent.
+    function_calling_llm: The language model that will handle the tool calling for this agent, it overrides the crew function_calling_llm.
+    max_iter: Maximum number of iterations for an agent to execute a task.
+    max_rpm: Maximum number of requests per minute for the agent execution to be respected.
+    verbose: Whether the agent execution should be in verbose mode.
+    allow_delegation: Whether the agent is allowed to delegate tasks to other agents.
+    tools: Tools at agents disposal
+    step_callback: Callback to be executed after each step of the agent execution.
+    knowledge_sources: Knowledge sources for the agent.
+    embedder: Embedder configuration for the agent.
+    '''
     @agent
     def researcher(self) -> Agent:
         return Agent(
             config=self.agents_config['researcher'], # type: ignore[index]
-            verbose=True
+            verbose=True,
+            temperature=0.0   
         )
 
     @agent
     def reporting_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['reporting_analyst'], # type: ignore[index]
-            verbose=True
+            verbose=True,
+            temp=0
         )
     @agent
     def evaluator(self) -> Agent:
@@ -42,6 +64,25 @@ class GenFormalizer():
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
+    ''' Additional Attributes:
+        agent: Agent responsible for task execution. Represents entity performing task.
+        async_execution: Boolean flag indicating asynchronous task execution.
+        callback: Function/object executed post task completion for additional actions.
+        config: Dictionary containing task-specific configuration parameters.
+        context: List of Task instances providing task context or input data.
+        description: Descriptive text detailing task's purpose and execution.
+        expected_output: Clear definition of expected task outcome.
+        output_file: File path for storing task output.
+        create_directory: Whether to create the directory for output_file if it doesn't exist.
+        output_json: Pydantic model for structuring JSON output.
+        output_pydantic: Pydantic model for task output.
+        security_config: Security configuration including fingerprinting.
+        tools: List of tools/resources limited for task execution.
+        allow_crewai_trigger_context: Optional flag to control crewai_trigger_payload injection.
+                              None (default): Auto-inject for first task only.
+                              True: Always inject trigger payload for this task.
+                              False: Never inject trigger payload, even for first task.
+    '''
     @task
     def research_task(self) -> Task:
         return Task(
