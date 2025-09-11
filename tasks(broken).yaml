@@ -1,0 +1,18 @@
+research_task:
+  description: >
+    look up the topic {topic} and learn about it.
+  expected_output: >
+    Please give us information about the topic and an answer to the {topic}.
+  agent: researcher
+
+reporting_task:
+  description: >
+    **Comprehensive Evaluation**: Encourage the use of computational tools to check for equivalence in cases where expressions are too complex for straightforward visual inspection.
+        The answer is {answer}
+  expected_output: >
+            {{
+                "score": "<score (0 0r 1)>",
+            }}
+  agent: reporting_analyst
+
+

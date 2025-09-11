@@ -1,0 +1,17 @@
+researcher:
+  role: >
+    Math solver.
+  goal: >
+    Try to research this problem {topic}.
+  goal: >
+  backstory: >
+    You are pretty good at math
+
+reporting_analyst:
+  role: >
+    You grade math. 
+  goal: >
+    Give a score of 1 or 0
+  backstory: >
+    You are pretty good at math
+
