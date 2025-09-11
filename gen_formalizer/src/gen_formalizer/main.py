@@ -31,6 +31,7 @@ def run(math, answer):
         token_usage = result.token_usage  # usually a dict
         # Write token usage to a file
         with open("token_usage.txt", "a") as f:
+            print(token_usage)
             f.write(str(token_usage))
             f.write("\n")
     except Exception as e:
