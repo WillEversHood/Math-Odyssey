@@ -53,15 +53,17 @@ class GenFormalizer():
         return Agent(
             config=self.agents_config['reporting_analyst'], # type: ignore[index]
             verbose=True,
-            temp=0
+            temp=0,
+            llm=LLM(model='gemini/gemini-2.5-flash', max_tokens=100000)
         )
+    '''
     @agent
     def evaluator(self) -> Agent:
         return Agent(
             config=self.agents_config['reporting_analyst'],
             verbose=True
         )
-
+    '''
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
