@@ -1,5 +1,5 @@
 ```json
 {
-    "score": 0
+    "score": 1
 }
 ```

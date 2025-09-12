@@ -4,14 +4,14 @@
 for j in $(seq 1 $2); do
     correct=0
     wrong=0
-    cd ~/Documents/Math-Odyssey
+    cd ~/Documents/Math-Odyssey-limits
     chmod +x stratified_sampling.py
     python3 stratified_sampling.py $1
     lines=$(wc -l < sample.jsonl)
     echo "number of problems $1"
     for i in $(seq 1 $1); do
         #echo "Line number: $i"
-        cd ~/Documents/Math-Odyssey
+        cd ~/Documents/Math-Odyssey-limits
         chmod +x generate_question.py
         chmod +x generate_answer.py
         question=$(python3 generate_question.py $i)
@@ -20,7 +20,7 @@ for j in $(seq 1 $2); do
         #echo "answer: $answer"
         #echo "question: $question"
         
-        cd ~/Documents/Math-Odyssey/gen_formalizer
+        cd ~/Documents/Math-Odyssey-limits/gen_formalizer
         chmod +x generate_score.py
         #crewai install
         #myarray=($question $answer)
