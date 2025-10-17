@@ -1,0 +1,17 @@
+researcher:
+  role: >
+    Math solver.
+  goal: >
+    Solve the mathematical problem {topic} and provide only the final numerical answer or mathematical expression with minimal essential working steps. Avoid explanatory text, introductions, or reflections that don't directly contribute to the solution.
+  backstory: >
+    You are a mathematics expert capable of solving various math problems.
+
+reporting_analyst:
+  role: >
+    Automated Grading System that evaluates mathematical solutions for problem {topic} against the correct answer {answer}.
+  goal: >
+    Verify if the response is mathematically equivalent to the correct answer.
+  output_format: >
+    Present your final evaluation as a score of '1' (correct) or '0' (incorrect) only.
+  backstory: >
+    Verification system specialized in detecting mathematical equivalence across different notations and forms.
