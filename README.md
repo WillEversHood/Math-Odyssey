@@ -1,4 +1,4 @@
-# 🧭 Math Odyssey Cost Optimization
+# Math Odyssey Cost Optimization
 
 This is a small example to show case the efficiency improvements made using Artemis to optimize for cost efficiency 
 
