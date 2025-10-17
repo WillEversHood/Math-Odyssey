@@ -35,7 +35,7 @@ cd .. && ./ final_eval.sh 30 2 2> output.txt
 
 To run a custom evaluation you can run
 
-```command time -o -v time.log ./final_eval.sh <#problems/eval> <#evals> 2>output.txt```
+```command time -o -v time.log ./final_eval.sh <#problems per eval> <#evals> 2>output.txt```
 
 ### Step 1: Understand Reporting
 
